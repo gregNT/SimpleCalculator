@@ -45,7 +45,6 @@ namespace SimpleCalculator
                 Console.WriteLine("Invalid operator. Try again: ");
             
             Operation = operation;
-            Console.WriteLine(operation);
         }
         
         public decimal Evaluate()
