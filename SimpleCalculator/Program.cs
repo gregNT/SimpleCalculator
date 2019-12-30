@@ -38,7 +38,10 @@ namespace SimpleCalculator
         static void Main(string[] args)
         {
             SimpleCalc calc = new SimpleCalc();
-            calc.GetUserInput();
+            calc.GetUserInput(calc, nameof(SimpleCalc.A));
+            calc.GetUserInput(calc, nameof(SimpleCalc.B));
+            //Console.WriteLine("A: " + calc.A.ToString() + ", B: " + calc.B.ToString());
+            
         }
     }
 }
