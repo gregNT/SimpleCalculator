@@ -29,6 +29,8 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
+            SimpleCalc calc = new SimpleCalc();
+            calc.GetUserInput();
         }
     }
 }
