@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,50 +10,20 @@ namespace SimpleCalculator
     public class SimpleCalc
     {
         // properties
-        decimal _a;
-        decimal _b;
-
+        public decimal A { get; set; }
+        public decimal B { get; set; }
         public string operation { get; set; }
-
-        // methods
-        public void SetA() {
-            Console.WriteLine("Enter a (decimal): ");
-            while (!decimal.TryParse(Console.ReadLine(), out _a))
-                Console.WriteLine("The value must be of decimal type, try again: ");
-        }
-
-        public void SetB()
-        {
-            Console.WriteLine("Enter b (decimal): ");
-            while (!decimal.TryParse(Console.ReadLine(), out _b))
-                Console.WriteLine("The value must be of decimal type, try again: ");
-        }             
         
-        public void GetUserInput()
+        public void GetUserInput(object target, string propertyName)
         {
-            SetA();
-            SetB();
-            /*
-            do
-            {
-                
-                isNumeric = 
-                if (isNumeric)
-                    a = val;
-                else
-                    Console.WriteLine("Error! Please specify the correct numeric value.");
-            } while (!isNumeric);
+            PropertyInfo prop = target.GetType().GetProperty(propertyName);
+            decimal val;
 
-            do
-            {
-                Console.WriteLine("Specify the second input (b): ");
-                isNumeric = decimal.TryParse(Console.ReadLine(), out val);
-                if (isNumeric)
-                    b = val;
-                else
-                    Console.WriteLine("Error! Please specify the correct numeric value.");
-            } while (!isNumeric);
-            */
+            Console.WriteLine("Enter value (decimal): ");
+            while (!decimal.TryParse(Console.ReadLine(), out val))
+                Console.WriteLine("The value must be of decimal type, try again: ");
+
+            prop.SetValue(target, val);
         }
         
 
