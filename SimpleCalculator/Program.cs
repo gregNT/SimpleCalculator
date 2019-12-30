@@ -68,6 +68,11 @@ namespace SimpleCalculator
                     break;
             }
         }
+
+        public void PrintResult()
+        {
+            Console.WriteLine($"Result: {Result}");
+        }
     }
     class Program
     {
@@ -78,7 +83,7 @@ namespace SimpleCalculator
             calc.GetUserInput(calc, nameof(SimpleCalc.B));
             calc.GetOperation();
             calc.Evaluate();
-            Console.WriteLine(calc.Result);      
+            calc.PrintResult();      
         }
     }
 }
