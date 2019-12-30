@@ -23,6 +23,7 @@ namespace SimpleCalculator
         public decimal A { get; set; }
         public decimal B { get; set; }
         public string Operation { get; set; }
+        public decimal Result { get; set; }
         
         public void GetUserInput(object target, string propertyName)
         {
@@ -47,32 +48,24 @@ namespace SimpleCalculator
             Operation = operation;
         }
         
-        public decimal Evaluate()
+        public void Evaluate()
         {
-            decimal result;
-
             switch (Operation)
             {
                 case "+":
-                    result = A + B;
+                    Result = A + B;
                     break;
                 case "-":
-                    result = A - B;
+                    Result = A - B;
                     break;
                 case "*":
-                    result = A * B;
+                    Result = A * B;
                     break;
                 case "/":
-                    result = A / B;
-                    break;
-                default:
-                    result = 0m;
+                    Result = A / B;
                     break;
             }
-
-            return result;
         }
-
     }
     class Program
     {
@@ -82,9 +75,8 @@ namespace SimpleCalculator
             calc.GetUserInput(calc, nameof(SimpleCalc.A));
             calc.GetUserInput(calc, nameof(SimpleCalc.B));
             calc.GetOperation();
-            Console.WriteLine(calc.Evaluate());
-            //Console.WriteLine("A: " + calc.A.ToString() + ", B: " + calc.B.ToString());
-            
+            calc.Evaluate();
+            Console.WriteLine(calc.Result);      
         }
     }
 }
