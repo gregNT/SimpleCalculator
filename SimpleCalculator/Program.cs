@@ -9,6 +9,7 @@ namespace SimpleCalculator
 {
     public class SimpleCalc
     {
+        // private members
         Dictionary<string, string> _allowedOperations = new Dictionary<string, string> {
             {"+", "+" },
             {"add", "+" },
@@ -19,12 +20,13 @@ namespace SimpleCalculator
             {"/", "/"},
             {"divide", "/"}
         };
-        // properties
+        // auto-properties
         public decimal A { get; set; }
         public decimal B { get; set; }
         public string Operation { get; set; }
         public decimal Result { get; set; }
         
+        // methods
         public void GetUserInput(object target, string propertyName)
         {
             PropertyInfo prop = target.GetType().GetProperty(propertyName);
