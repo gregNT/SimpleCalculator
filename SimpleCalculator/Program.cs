@@ -19,7 +19,7 @@ namespace SimpleCalculator
             PropertyInfo prop = target.GetType().GetProperty(propertyName);
             decimal val;
 
-            Console.WriteLine("Enter value (decimal): ");
+            Console.WriteLine($"Enter {prop.Name} (decimal): ");
             while (!decimal.TryParse(Console.ReadLine(), out val))
                 Console.WriteLine("The value must be of decimal type, try again: ");
 
