@@ -83,6 +83,7 @@ namespace SimpleCalculator
             calc.GetUserInput(calc, nameof(SimpleCalc.A));
             calc.GetUserInput(calc, nameof(SimpleCalc.B));
             calc.GetOperation();
+            Console.WriteLine(calc.Evaluate());
             //Console.WriteLine("A: " + calc.A.ToString() + ", B: " + calc.B.ToString());
             
         }
