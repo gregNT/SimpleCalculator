@@ -50,7 +50,28 @@ namespace SimpleCalculator
         
         public decimal Evaluate()
         {
-            return 0m;
+            decimal result;
+
+            switch (Operation)
+            {
+                case "+":
+                    result = A + B;
+                    break;
+                case "-":
+                    result = A - B;
+                    break;
+                case "*":
+                    result = A * B;
+                    break;
+                case "/":
+                    result = A / B;
+                    break;
+                default:
+                    result = 0m;
+                    break;
+            }
+
+            return result;
         }
 
     }
