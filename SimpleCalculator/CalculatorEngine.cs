@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCalculator
 {
-    class CalculatorEngine
+    public class CalculatorEngine
     {
         public decimal Evaluate(string argOperation, decimal argFirstNumber, decimal argSecondNumber)
         {

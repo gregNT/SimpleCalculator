@@ -16,8 +16,8 @@ namespace SimpleCalculator
                 InputConverter inputConverter = new InputConverter();
                 CalculatorEngine calculatorEngine = new CalculatorEngine();
                
-                decimal firstNumber = inputConverter.GetUserInput(Console.ReadLine());
-                decimal secondNumber = inputConverter.GetUserInput(Console.ReadLine());
+                decimal firstNumber = inputConverter.ConvertStringNumberToDouble(Console.ReadLine());
+                decimal secondNumber = inputConverter.ConvertStringNumberToDouble(Console.ReadLine());
                 string operation = Console.ReadLine();
                 decimal result = calculatorEngine.Evaluate(operation, firstNumber, secondNumber);
                 Console.WriteLine($"Result: {result}");

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SimpleCalculator
 {
-    class InputConverter
+    public class InputConverter
     {
-        public decimal GetUserInput(string argTextInput)
+        public decimal ConvertStringNumberToDouble(string argTextInput)
         {
             decimal convertedNumber;
             if (!decimal.TryParse(argTextInput, out convertedNumber))
