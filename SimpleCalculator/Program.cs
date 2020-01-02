@@ -7,50 +7,6 @@ using System.Threading.Tasks;
 
 namespace SimpleCalculator
 {
-    public class SimpleCalc
-    {   
-        // methods
-        public decimal GetUserInput(string argTextInput)
-        {
-            decimal convertedNumber;
-            if (!decimal.TryParse(argTextInput, out convertedNumber))
-                throw new ArgumentException("Expected a numeric value.");
-
-            return convertedNumber;
-        }
-        
-        public decimal Evaluate(string argOperation, decimal argFirstNumber, decimal argSecondNumber)
-        {
-            decimal result;
-            switch (argOperation)
-            {
-                case "+":
-                case "add":
-                    result = argFirstNumber + argSecondNumber;
-                    break;
-                case "-":
-                case "subtract":
-                    result = argFirstNumber - argSecondNumber;
-                    break;
-                case "*":
-                case "multiply":
-                    result = argFirstNumber * argSecondNumber;
-                    break;
-                case "/":
-                case "divide":
-                    result = argFirstNumber / argSecondNumber;
-                    break;
-                default:
-                    throw new InvalidOperationException("Invalid operator specified.");
-            }
-            return result;
-        }
-
-        public void PrintResult(decimal argResult)
-        {
-            Console.WriteLine($"Result: {argResult}");
-        }
-    }
     class Program
     {
         static void Main(string[] args)
