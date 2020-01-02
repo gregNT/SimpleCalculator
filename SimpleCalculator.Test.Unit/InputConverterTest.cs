@@ -10,12 +10,17 @@ namespace SimpleCalculator.Test.Unit
         [TestMethod]
         public void ConvertsValidStringInputIntoDouble()
         {
-
+            string inputText = "4";
+            decimal result = _inputConverter.ConvertStringNumberToDouble(inputText);
+            Assert.AreEqual(4m, result);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void FailsToConvertInvalidStringInputIntoDouble()
         {
+            string inputText = "*";
+            decimal result = _inputConverter.ConvertStringNumberToDouble(inputText);
         }
     }
 }
