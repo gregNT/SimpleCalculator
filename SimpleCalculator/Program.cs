@@ -9,17 +9,6 @@ namespace SimpleCalculator
 {
     public class SimpleCalc
     {
-        // private members
-        Dictionary<string, string> _allowedOperations = new Dictionary<string, string> {
-            {"+", "+" },
-            {"add", "+" },
-            {"-", "-" },
-            {"subtract", "-"},
-            {"*", "*"},
-            {"multiply", "*"},
-            {"/", "/"},
-            {"divide", "/"}
-        };
         // auto-properties
         public decimal A { get; set; }
         public decimal B { get; set; }
@@ -34,17 +23,6 @@ namespace SimpleCalculator
                 throw new ArgumentException("Expected a numeric value.");
 
             return convertedNumber;
-        }
-
-        public void GetOperation()
-        {
-            string operation = null;
-
-            Console.WriteLine($"Enter operator: ");
-            while (!_allowedOperations.TryGetValue(Console.ReadLine().ToLower(), out operation))
-                Console.WriteLine("Invalid operator. Try again: ");
-            
-            Operation = operation;
         }
         
         public void Evaluate()
