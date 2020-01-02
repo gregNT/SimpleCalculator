@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="InputConverterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CalculatorEngineTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
