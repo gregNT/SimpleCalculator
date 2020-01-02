@@ -8,5 +8,13 @@ namespace SimpleCalculator
 {
     class InputConverter
     {
+        public decimal GetUserInput(string argTextInput)
+        {
+            decimal convertedNumber;
+            if (!decimal.TryParse(argTextInput, out convertedNumber))
+                throw new ArgumentException("Expected a numeric value.");
+
+            return convertedNumber;
+        }
     }
 }
