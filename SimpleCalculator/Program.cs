@@ -59,8 +59,8 @@ namespace SimpleCalculator
                 decimal firstNumber = calc.GetUserInput(Console.ReadLine());
                 decimal secondNumber = calc.GetUserInput(Console.ReadLine());
                 string operation = Console.ReadLine();
-                /*decimal result = calc.Evaluate();
-                calc.PrintResult(result); */
+                decimal result = calc.Evaluate(operation, firstNumber, secondNumber);
+                //calc.PrintResult(result);
             }
             catch (Exception ex)
             {
