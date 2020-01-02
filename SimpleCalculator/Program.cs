@@ -68,7 +68,6 @@ namespace SimpleCalculator
             {
                 Console.WriteLine(ex.Message);
             }
-
         }
     }
 }
