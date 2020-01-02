@@ -25,23 +25,31 @@ namespace SimpleCalculator
             return convertedNumber;
         }
         
-        public void Evaluate()
+        public decimal Evaluate(string argOperation, decimal argFirstNumber, decimal argSecondNumber)
         {
-            switch (Operation)
+            decimal result;
+            switch (argOperation)
             {
                 case "+":
-                    Result = A + B;
+                case "add":
+                    result = argFirstNumber + argSecondNumber;
                     break;
                 case "-":
-                    Result = A - B;
+                case "subtract":
+                    result = argFirstNumber - argSecondNumber;
                     break;
                 case "*":
-                    Result = A * B;
+                case "multiply":
+                    result = argFirstNumber * argSecondNumber;
                     break;
                 case "/":
-                    Result = A / B;
+                case "divide":
+                    result = argFirstNumber / argSecondNumber;
                     break;
+                default:
+                    throw new InvalidOperationException("Invalid operator specified.");
             }
+            return result;
         }
 
         public void PrintResult()
