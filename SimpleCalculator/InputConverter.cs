@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCalculator
 {
-    class InputConverter
+    public class InputConverter
     {
         public decimal GetUserInput(string argTextInput)
         {
