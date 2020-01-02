@@ -8,13 +8,7 @@ using System.Threading.Tasks;
 namespace SimpleCalculator
 {
     public class SimpleCalc
-    {
-        // auto-properties
-        public decimal A { get; set; }
-        public decimal B { get; set; }
-        public string Operation { get; set; }
-        public decimal Result { get; set; }
-        
+    {   
         // methods
         public decimal GetUserInput(string argTextInput)
         {
