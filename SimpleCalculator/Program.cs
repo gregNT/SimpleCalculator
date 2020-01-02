@@ -57,12 +57,14 @@ namespace SimpleCalculator
         {
             try
             {
-                SimpleCalc calc = new SimpleCalc();
-                decimal firstNumber = calc.GetUserInput(Console.ReadLine());
-                decimal secondNumber = calc.GetUserInput(Console.ReadLine());
+                InputConverter inputConverter = new InputConverter();
+                CalculatorEngine calculatorEngine = new CalculatorEngine();
+               
+                decimal firstNumber = inputConverter.GetUserInput(Console.ReadLine());
+                decimal secondNumber = inputConverter.GetUserInput(Console.ReadLine());
                 string operation = Console.ReadLine();
-                decimal result = calc.Evaluate(operation, firstNumber, secondNumber);
-                calc.PrintResult(result);
+                decimal result = calculatorEngine.Evaluate(operation, firstNumber, secondNumber);
+                Console.WriteLine($"Result: {result}");
             }
             catch (Exception ex)
             {
