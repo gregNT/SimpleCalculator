@@ -27,16 +27,13 @@ namespace SimpleCalculator
         public decimal Result { get; set; }
         
         // methods
-        public void GetUserInput(object target, string propertyName)
+        public decimal GetUserInput(string argTextInput)
         {
-            PropertyInfo prop = target.GetType().GetProperty(propertyName);
-            decimal val;
+            decimal convertedNumber;
+            if (!decimal.TryParse(argTextInput, out convertedNumber))
+                throw new ArgumentException("Expected a numeric value.");
 
-            Console.WriteLine($"Enter {prop.Name} (decimal): ");
-            while (!decimal.TryParse(Console.ReadLine(), out val))
-                Console.WriteLine("The value must be of decimal type, try again: ");
-
-            prop.SetValue(target, val);
+            return convertedNumber;
         }
 
         public void GetOperation()
