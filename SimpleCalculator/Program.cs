@@ -79,11 +79,11 @@ namespace SimpleCalculator
         static void Main(string[] args)
         {
             SimpleCalc calc = new SimpleCalc();
-            calc.GetUserInput(calc, nameof(SimpleCalc.A));
-            calc.GetUserInput(calc, nameof(SimpleCalc.B));
-            calc.GetOperation();
-            calc.Evaluate();
-            calc.PrintResult();      
+            decimal firstNumber =  calc.GetUserInput(calc, nameof(SimpleCalc.A));
+            decimal secondNumber = calc.GetUserInput(calc, nameof(SimpleCalc.B));
+            string operation = Console.ReadLine();
+            decimal result = calc.Evaluate();
+            calc.PrintResult(result);      
         }
     }
 }
