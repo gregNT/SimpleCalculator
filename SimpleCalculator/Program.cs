@@ -46,9 +46,9 @@ namespace SimpleCalculator
             return result;
         }
 
-        public void PrintResult()
+        public void PrintResult(decimal argResult)
         {
-            Console.WriteLine($"Result: {Result}");
+            Console.WriteLine($"Result: {argResult}");
         }
     }
     class Program
@@ -62,7 +62,7 @@ namespace SimpleCalculator
                 decimal secondNumber = calc.GetUserInput(Console.ReadLine());
                 string operation = Console.ReadLine();
                 decimal result = calc.Evaluate(operation, firstNumber, secondNumber);
-                //calc.PrintResult(result);
+                calc.PrintResult(result);
             }
             catch (Exception ex)
             {
