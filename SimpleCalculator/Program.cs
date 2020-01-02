@@ -75,12 +75,20 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
-            SimpleCalc calc = new SimpleCalc();
-            decimal firstNumber =  calc.GetUserInput(calc, nameof(SimpleCalc.A));
-            decimal secondNumber = calc.GetUserInput(calc, nameof(SimpleCalc.B));
-            string operation = Console.ReadLine();
-            decimal result = calc.Evaluate();
-            calc.PrintResult(result);      
+            try
+            {
+                SimpleCalc calc = new SimpleCalc();
+                decimal firstNumber = calc.GetUserInput(Console.ReadLine());
+                decimal secondNumber = calc.GetUserInput(Console.ReadLine());
+                string operation = Console.ReadLine();
+                /*decimal result = calc.Evaluate();
+                calc.PrintResult(result); */
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
     }
 }
