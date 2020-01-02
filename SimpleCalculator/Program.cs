@@ -8,82 +8,67 @@ using System.Threading.Tasks;
 namespace SimpleCalculator
 {
     public class SimpleCalc
-    {
-        // private members
-        Dictionary<string, string> _allowedOperations = new Dictionary<string, string> {
-            {"+", "+" },
-            {"add", "+" },
-            {"-", "-" },
-            {"subtract", "-"},
-            {"*", "*"},
-            {"multiply", "*"},
-            {"/", "/"},
-            {"divide", "/"}
-        };
-        // auto-properties
-        public decimal A { get; set; }
-        public decimal B { get; set; }
-        public string Operation { get; set; }
-        public decimal Result { get; set; }
-        
+    {   
         // methods
-        public void GetUserInput(object target, string propertyName)
+        public decimal GetUserInput(string argTextInput)
         {
-            PropertyInfo prop = target.GetType().GetProperty(propertyName);
-            decimal val;
+            decimal convertedNumber;
+            if (!decimal.TryParse(argTextInput, out convertedNumber))
+                throw new ArgumentException("Expected a numeric value.");
 
-            Console.WriteLine($"Enter {prop.Name} (decimal): ");
-            while (!decimal.TryParse(Console.ReadLine(), out val))
-                Console.WriteLine("The value must be of decimal type, try again: ");
-
-            prop.SetValue(target, val);
-        }
-
-        public void GetOperation()
-        {
-            string operation = null;
-
-            Console.WriteLine($"Enter operator: ");
-            while (!_allowedOperations.TryGetValue(Console.ReadLine().ToLower(), out operation))
-                Console.WriteLine("Invalid operator. Try again: ");
-            
-            Operation = operation;
+            return convertedNumber;
         }
         
-        public void Evaluate()
+        public decimal Evaluate(string argOperation, decimal argFirstNumber, decimal argSecondNumber)
         {
-            switch (Operation)
+            decimal result;
+            switch (argOperation)
             {
                 case "+":
-                    Result = A + B;
+                case "add":
+                    result = argFirstNumber + argSecondNumber;
                     break;
                 case "-":
-                    Result = A - B;
+                case "subtract":
+                    result = argFirstNumber - argSecondNumber;
                     break;
                 case "*":
-                    Result = A * B;
+                case "multiply":
+                    result = argFirstNumber * argSecondNumber;
                     break;
                 case "/":
-                    Result = A / B;
+                case "divide":
+                    result = argFirstNumber / argSecondNumber;
                     break;
+                default:
+                    throw new InvalidOperationException("Invalid operator specified.");
             }
+            return result;
         }
 
-        public void PrintResult()
+        public void PrintResult(decimal argResult)
         {
-            Console.WriteLine($"Result: {Result}");
+            Console.WriteLine($"Result: {argResult}");
         }
     }
     class Program
     {
         static void Main(string[] args)
         {
-            SimpleCalc calc = new SimpleCalc();
-            calc.GetUserInput(calc, nameof(SimpleCalc.A));
-            calc.GetUserInput(calc, nameof(SimpleCalc.B));
-            calc.GetOperation();
-            calc.Evaluate();
-            calc.PrintResult();      
+            try
+            {
+                SimpleCalc calc = new SimpleCalc();
+                decimal firstNumber = calc.GetUserInput(Console.ReadLine());
+                decimal secondNumber = calc.GetUserInput(Console.ReadLine());
+                string operation = Console.ReadLine();
+                decimal result = calc.Evaluate(operation, firstNumber, secondNumber);
+                calc.PrintResult(result);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
     }
 }
