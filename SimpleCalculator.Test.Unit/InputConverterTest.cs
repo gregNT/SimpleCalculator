@@ -6,6 +6,7 @@ namespace SimpleCalculator.Test.Unit
     [TestClass]
     public class InputConverterTest
     {
+        private readonly InputConverter _inputConverter = new InputConverter();
         [TestMethod]
         public void ConvertsValidStringInputIntoDouble()
         {
